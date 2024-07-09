@@ -47,11 +47,21 @@
 	.scroll-navbar {
 		transition: all 0.3s ease;
 	}
-	.scroll-navbar.scrolled {
-		backdrop-filter: blur(4px); /* Apply backdrop blur on scroll */
-		background-color: rgba(31, 41, 55, 0.8); /* bg-gray-800 with opacity */
-		padding-top: 1rem; /* py-2 */
-		padding-bottom: 1rem; /* py-2 */
+	.scroll-navbar.scrolled{
+		padding-top: 1rem;
+		padding-bottom: 1rem; 
+	}
+	.menu-open #menu {
+		display: block;
+	}
+	
+    #menu.open {
+        transform: translateX(0);
+    }
+
+	#navbar{
+		backdrop-filter: blur(4px); /* Apply blur */
+		background-color: rgba(31, 41, 55, 0.8); 
 	}
 </style>
 <div class="layout-container bg-gray-900">
@@ -60,8 +70,23 @@
 		{{ page.header }}
 	</header>
 
+
 	<nav id="navbar" class="bg-gray-800 bg-opacity-70 p-6 fixed w-full top-0 z-50 scroll-navbar">
-		<ul class="i flex justify-center gap-20 space-x-4 font-extrabold uppercase text-lg">
+		<div class="flex justify-between items-center">
+			<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-planet text-blue-500 hover:text-blue-700 md:hidden">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+				<path d="M18.816 13.58c2.292 2.138 3.546 4 3.092 4.9c-.745 1.46 -5.783 -.259 -11.255 -3.838c-5.47 -3.579 -9.304 -7.664 -8.56 -9.123c.464 -.91 2.926 -.444 5.803 .805"/>
+				<path d="M12 12m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/>
+			</svg>
+			<div class="md:hidden">
+				<button id="menu-button" class="text-white focus:outline-none">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+		<ul id="menu" class="i md:flex md:flex-row md:h-8 md:justify-center flex flex-col justify-center h-screen item gap-20 md:gap-20 md:space-x-4 font-extrabold uppercase text-lg hidden md:block">
 			<li>
 				<a href="#" class="ini text-white hover:text-gray-300" data-target=".i">Inicio</a>
 			</li>
@@ -76,6 +101,12 @@
 			</li>
 		</ul>
 	</nav>
+	    <!-- Botón X para cerrar el menú móvil -->
+    <button id="menu-close" class="absolute top-6 right-6 md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M14.293 5.293a1 1 0 0 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 1 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 1 1-1.414-1.414L8.586 10 4.293 5.707a1 1 0 0 1 1.414-1.414L10 8.586l4.293-4.293z" clip-rule="evenodd" />
+        </svg>
+    </button>
 
 
 	{{ page.secondary_menu }}
@@ -123,14 +154,14 @@
 				<ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
 					<li>
 						<a href="mailto:javierreyesmar95@gmail.com" class="hover:underline me-4 md:me-6 flex items-center gap-4">
-							<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" /><path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" /></svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z"/><path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z"/></svg>
 							<span>javierreyesmar95@gmail.com</span>
 						</a>
 					</li>
 
 					<li>
 						<a href="https://github.com/RMJavier95" class="hover:underline me-4 md:me-6 flex items-center gap-4">
-							<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>
 							github.com/RMJavier95</a>
 					</li>
 				</ul>

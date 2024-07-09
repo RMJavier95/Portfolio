@@ -14,6 +14,7 @@ module.exports = {
     // ################################################
     'accent': ['./js/accent.js'],
     'description_toggle': ['./js/description_toggle.js'],
+    'dropbutton': ['./js/dropbutton.js'],
     'more_actions': ['./js/more_actions.js'],
     'gin_ckeditor': ['./js/gin_ckeditor.js'], // Can't rename as we would be in trouble
     'init': ['./js/init.js'],
@@ -52,11 +53,13 @@ module.exports = {
     'components/layout_paragraphs': ['./styles/components/layout_paragraphs.scss'],
     'components/layout_paragraphs_2.0': ['./styles/components/layout_paragraphs_2.0.scss'],
     'components/linkit': ['./styles/components/linkit.scss'],
+    'components/maintenance_page': ['./styles/components/maintenance_page.scss'],
     'components/media_library': ['./styles/components/media_library.scss'],
     'components/module_filter': ['./styles/components/module_filter.scss'],
     'components/node_preview': ['./styles/components/node_preview.scss'],
     'components/paragraphs': ['./styles/components/paragraphs.scss'],
     'components/responsive_preview': ['./styles/components/responsive_preview.scss'],
+    'components/project_browser': ['./styles/components/project_browser.scss'],
     'components/revisions': ['./styles/components/revisions.scss'],
     'components/settings_tray': ['./styles/components/settings_tray.scss'],
     'components/settings_tray_edit': ['./styles/components/settings_tray_edit.scss'],
