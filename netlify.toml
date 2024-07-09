@@ -1,8 +1,8 @@
 [build]
-    environment = { PHP_VERSION = "8.1" }
-    base = "/"
-    
+    publish = "public"  # Carpeta donde se encuentran los archivos estáticos generados
+    command = "drush tome:static"  # Comando para generar los archivos estáticos
+
 [[redirects]]
-  from = "/*"
-  to = "/web/index.php"
-  status = 200
+    from = "/*"
+    to = "/index.html"
+    status = 200
