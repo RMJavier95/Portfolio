@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Theme and preprocess functions for fieldsets.
+ */
+
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() to alter theme suggestions for fieldsets within Views.
+ */
+function radix_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+  // Add theme suggestion based on the fieldset type.
+  if (isset($variables['element']['#type'])) {
+    $suggestions[] = 'fieldset__type__' . $variables['element']['#type'];
+  }
+
+  // Add theme suggestions based on the form ID.
+  if (isset($variables['element']['#form_id'])) {
+    $suggestions[] = 'fieldset__form_id__' . $variables['element']['#form_id'];
+
+    // Add theme suggestion based on the form ID and fieldset type.
+    if (isset($variables['element']['#type'])) {
+      $suggestions[] = 'fieldset__form_id__' . $variables['element']['#form_id'] . '__type__' . $variables['element']['#type'];
+    }
+  }
+
+  // Add theme suggestions based on the View ID and display ID.
+  if (isset($variables['element']['#context']['#view_id'])) {
+    $view_id = $variables['element']['#context']['#view_id'];
+    $display_id = $variables['element']['#context']['#display_id'] ?? 'default';
+
+    $suggestions[] = 'fieldset__view__' . $view_id;
+    $suggestions[] = 'fieldset__view__' . $view_id . '__display__' . $display_id;
+
+    // Add theme suggestion based on the View ID, display ID, and fieldset type.
+    if (isset($variables['element']['#type'])) {
+      $suggestions[] = 'fieldset__view__' . $view_id . '__display__' . $display_id . '__type__' . $variables['element']['#type'];
+    }
+
+    // Add theme suggestion based on the View ID, display ID, and fieldset name.
+    if (isset($variables['element']['#name'])) {
+      $suggestions[] = 'fieldset__view__' . $view_id . '__display__' . $display_id . '__name__' . Html::cleanCssIdentifier($variables['element']['#name']);
+    }
+  }
+}
