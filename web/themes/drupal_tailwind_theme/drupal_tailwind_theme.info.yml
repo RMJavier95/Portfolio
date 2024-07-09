@@ -1,0 +1,24 @@
+name: drupal_tailwind_theme
+type: theme
+'base theme': stable9
+version: 1.0.0
+libraries:
+  - drupal_tailwind_theme/base
+  - drupal_tailwind_theme/messages
+  - core/normalize
+  - drupal_tailwind_theme/tailwind
+  - drupal_tailwind_theme/global-scripts
+libraries-extend:
+  user/drupal.user:
+    - drupal_tailwind_theme/user
+  core/drupal.dropbutton:
+    - drupal_tailwind_theme/dropbutton
+  core/drupal.dialog:
+    - drupal_tailwind_theme/dialog
+  file/drupal.file:
+    - drupal_tailwind_theme/file
+  core/drupal.progress:
+    - drupal_tailwind_theme/progress
+description: ''
+core_version_requirement: ^10
+generator: 'starterkit_theme:10.3.0'

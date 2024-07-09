@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Custom template for field--paragraph--field-subtitle.html.twig.
+ */
+#}
+<div{{ attributes.addClass('field__items', ['flex flex-col items-center justify-center h-full text-center text-xl font-bold uppercase py-10  text-white']) }}>
+  {% for item in items %}
+    <div{{ item.attributes.addClass('field__item', ['block', 'p-4']) }}>
+      {{ item.content }}
+    </div>
+  {% endfor %}
+</div>

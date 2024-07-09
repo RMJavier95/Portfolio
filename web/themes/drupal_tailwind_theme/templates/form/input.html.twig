@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+
+{%
+  set classes = [
+    'rounded',
+    'text-black',
+    'w-full',
+    'p-2',
+    'mt-2'
+  ]
+%}
+
+{# Agregar clases adicionales específicas para inputs #}
+{%
+  if attributes['type'] == 'button' or attributes['type'] == 'submit'
+%}
+    {%
+      set classes = classes|merge(['bg-blue-500 hover:bg-blue-700 text-white hover:cursor-pointer'])
+    %}
+{%
+  endif
+%}
+
+<input{{ attributes.addClass(classes) }}>{{ children }}</input>

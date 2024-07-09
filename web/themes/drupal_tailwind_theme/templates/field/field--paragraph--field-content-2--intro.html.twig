@@ -1,0 +1,20 @@
+{#
+    /**
+     * @file
+     * Custom template for field--paragraph--field-content-2--intro.html.twig.
+     */
+    #}
+    
+    {# Incluir la plantilla de la imagen para obtener image_url #}
+    {% include 'themes/drupal_tailwind_theme/templates/field/image.html.twig' %}
+    
+    <div class="relative h-screen bg-gray-800 opacity-75">
+      {% for item in items %}
+        <div class="absolute inset-1 flex flex-col justify-center items-center text-white z-10">
+          <div class="px-6 py-3 text-6xl uppercase bg-transparent">
+            {{ item.content }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    

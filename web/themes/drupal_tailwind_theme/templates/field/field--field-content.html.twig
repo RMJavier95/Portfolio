@@ -1,0 +1,13 @@
+{#
+  /**
+   * @file
+   * Custom template for field--field-content.html.twig.
+   */
+#}
+<div {{ attributes.addClass (attributes.addClass, ['a w-1/2 mx-auto justify-center text-center text-white pb-8']) }}">
+  {% for item in items %}
+    <div{{ item.attributes.addClass ('field__item') }}>
+      {{ item.content }}
+    </div>
+  {% endfor %}
+</div>

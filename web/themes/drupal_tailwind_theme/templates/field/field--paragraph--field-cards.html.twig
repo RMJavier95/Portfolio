@@ -1,0 +1,31 @@
+{#
+  /**
+   * @file
+   * Custom template for field--paragraph--field-cards.html.twig.
+   */
+#}
+
+
+<div {{ attributes.addClass('field__items', ['relative flex', 'flex-wrap', 'gap-4', 'justify-center']) }}>
+  {% for item in items %}
+    <div{{ item.attributes.addClass('field__item', ['block', 'max-w-sm', 'p-8', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow', 'hover:bg-gray-100', 'dark:bg-gray-800', 'dark:border-gray-700', 'dark:hover:bg-gray-700', 'text-white']) }}>
+      <div class="overflow-hidden">
+        {% if item.content['#paragraph'].field_title is defined %}
+          <h3 class="flex flex-col items-center justify-center h-full text-center font-bold uppercase py-20 text-white">{{ item.content['#paragraph'].field_title.value }}</h3>
+        {% endif %}
+        <div class="content-full hidden animate-fade-down animate-once animate-ease-out">
+          {{ item.content['#paragraph'].field_content.value|raw }}
+        </div>
+        <div class="content-preview animate-fade-down animate-once animate-ease-out">
+          {% set content_preview = item.content['#paragraph'].field_content.value|raw|slice(0, 300) %}
+          <p>{{ content_preview|raw }}{{ item.content['#paragraph'].field_content.value|raw|length > 300 ? '...' : '' }}</p>
+        </div>
+        {% if item.content['#paragraph'].field_content.value|raw|length > 300 %}
+          <button class="text-blue-500 hover:underline mt-2 focus:outline-none read-more">
+            Leer más
+          </button>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
