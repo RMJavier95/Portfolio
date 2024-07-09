@@ -1,2 +1,8 @@
 [build]
     environment = { PHP_VERSION = "8.1" }
+    base = "/"
+    
+[[redirects]]
+  from = "/*"
+  to = "/web/index.php"
+  status = 200
