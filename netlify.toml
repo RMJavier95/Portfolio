@@ -1,4 +1,5 @@
 [build]
+    environment = { PHP_VERSION = "8.1" }
     publish = "public"  # Carpeta donde se encuentran los archivos estáticos generados
     command = "drush tome:static"  # Comando para generar los archivos estáticos
 
